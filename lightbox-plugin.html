@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>A Simple Light Box Plugin by Ashish Panchal</title>
+<style type="text/css">
+	body { margin:0; padding:0; border:0; box-sizing:border-box; font-family:sans-serif; font-size:100%; }
+	h1, h2 { padding:0; margin:10px 0 3px 0; line-height:1; }
+	h1 { margin-bottom:25px; }
+	p { margin:0 0 15px 0; padding:0; }
+	ul { margin:5px 0 5px 10px; padding:1px; list-style-type:circle;}
+	ul li { list-style-type:circle; margin:0 0 0 20px; }
+	code { display:block; background-color:#F1F1F1; margin:0 10px 10px 10px; padding:15px 20px; border-radius:15px; font-family:Georgia, "Times New Roman", Times, serif; border:1px solid #666; width:85%; }
+	code p { margin-bottom:2px; }
+	code p.tabs span { color:#999; padding-left:50px; }
+	code p.subtabs span { color:#999; padding-left:25px; }
+	code .tabs { padding-left:35px; }
+	code .subtabs { padding-left:70px; }
+	code em { background-color:#FFFF99; font-style:italic; }
+	code strong { background-color:#FFCC33; font-style:italic; font-weight:normal; }
+	.vdowidth { width:640px; height:360px; }
+</style>
+</head>
+
+<body>
+<h1>A Simple Light Box Plugin by <a href="mailto:ashiish.panchal@gmail.com" title="Uses your default mail client">Ashish Panchal</a>.</h1>
+
+<h2>Different options available in this plugin:</h2>
+<ol>
+  <li><a href="#example1" title="Click to see example" class="overlay" data-target="internal">Div from same page</a></li>
+  <li><a href=".example2" title="Click to see example" class="overlay1" data-target="internal">Internal Video</a></li>
+  <li><a href="http://www.youtube.com/embed/WoAjE1aioHE" title="Click to see example" class="overlay2" data-target="video">YouTube video</a></li>
+  <li><a href="bxSlider.html" target="_blank" title="Click to see example" class="overlay3" data-target="external">Page from Same/External domain</a></li>
+  <li><a href="bxSlider.html#slide-1" target="_blank" title="Click to see example" class="overlay" data-target="external-div">Div from another page</a></li>
+</ol>
+<h2>How to use it?</h2>
+<p>HTML Code:</p>
+<code>
+	<p>&lt;ul&gt;</p>
+	<p class="tabs">&lt;li&gt;&lt;a <em>data-target=&quot;internal&quot;</em> <strong>class=&quot;overlay&quot;</strong> href=&quot;#example1&quot;&gt;Div from same page&lt;/a&gt;&lt;/li&gt;</p>
+	<p class="tabs">&lt;li&gt;&lt;a <em>data-target=&quot;internal&quot;</em> <strong>class=&quot;overlay1&quot;</strong> href=&quot;.example2&quot;&gt;Internal Video&lt;/a&gt;&lt;/li&gt;</p>
+	<p class="tabs">&lt;li&gt;&lt;a <em>data-target=&quot;extvdo&quot;</em> <strong>class=&quot;overlay2&quot;</strong> href=&quot;http://www.youtube.com/embed/WoAjE1aioHE&quot; title=&quot;YouTube video&quot;&gt;YouTube video&lt;/a&gt;&lt;/li&gt;</p>
+	<p class="tabs">&lt;li&gt;&lt;a <em>data-target=&quot;external&quot;</em> <strong>class=&quot;overlay3&quot;</strong> href=&quot;vdo-for-everyone.html&quot; target=&quot;_blank&quot;&gt;Page from Same/External domain&lt;/a&gt;&lt;/li&gt;</p>
+	<p class="tabs">&lt;li&gt;&lt;a <em>data-target=&quot;extdiv&quot;</em> <strong>class=&quot;overlay&quot;</strong> href=&quot;bxSlider.html#mover&quot; target=&quot;_blank&quot;&gt;Div from another page&lt;/a&gt;&lt;/li&gt;</p>
+<p>&lt;/ul&gt;</p>
+</code>
+<p>JS Code:</p>
+<code>
+	<p>&lt;script src=&quot;siteware/js/jquery-1.7.1.js&quot;&gt;&lt;/script&gt;</p>
+	<p>&lt;script src=&quot;siteware/js/jquery.aplightbox-v2.js&quot;&gt;&lt;/script&gt;</p>
+	<p>&lt;script&gt;</p>
+	<p class="tabs">$(<strong>&quot;.overlay&quot;</strong>).aLightBox();</p>
+    <p class="tabs">$(<strong>&quot;.overlay1&quot;</strong>).aLightBox({animation:true, direction:'left'});</p>
+    <p class="tabs">$(<strong>&quot;.overlay2&quot;</strong>).aLightBox({title:true, titlePos:'top', display:'fade'});</p>
+<p class="tabs">$(<strong>&quot;.overlay3&quot;</strong>).apLightBox({animation:true, direction:'right'});</p>
+	<p>&lt;/script&gt;</p>
+</code>
+
+<h2>Features:</h2>
+<ul>
+    <li>Important: You can import specific DIV from another page.</li>
+	<li>Can work with images, video, html pages.</li>
+    <li>Working on all most all browsers.</li>
+	<li>Accessible - you page would work if js is disabled.</li>
+	<li>Animation - from all four direction</li>
+	<li>fade or show</li>
+</ul>
+
+<h2>Defaults &amp; Options</h2>
+<code>
+<p>var defaults = {</p>
+<p class="tabs">animation:false,		<span>// DEFAULT = false, OPTION = true &amp; false</span></p>
+<p class="subtabs">direction:'top',		<span>// IF ANIMATION = true, DEFAULT = top, OTHER OPTIONS = top, bottom, left &amp; right</span></p>
+<p class="subtabs">time:700,			<span>// IF ANIMATION = true, DEFAULT = 700, YOU CAN SEN TIME IN MILISECONDS</span></p>
+<p class="tabs">display:'show',			<span>// DEFAULT = show, OPTION = fade &amp; show</span></p>
+<p class="subtabs">duration:500,		<span>// IF DISPLAY = fade, YOU CAN PUT DURATION IN MILISECONDS, DEFAULT = 500</span></p>
+<p class="tabs">top:'',					<span>// DEFAULT = center, OPTION = postion from top in pixel</span></p>
+<p class="tabs">left:'',				<span>// DEFAULT = center, OPTION = postion from left in pixel</span></p>
+<p class="tabs">title:false,			<span>// DEFAULT = false, OPTION = true &amp; false</span></p>
+<p class="subtabs">titlePos:'bottom',	<span>// IF TITLE = true, YOU CAN SET POSITION OF TITLE, DEFAULT = bottom, OPTIONS = top &amp; bottom</span></p>
+<p class="tabs">customClass:''			<span>// DEFAULT = blank, YOU CAN SET ONE OR MORE CLASS FOR SPECIFIC CSS</span></p>
+<p>}</p>
+</code>
+
+
+<p><strong>Note:</strong> I'm working on AJAX request for data for now (I'm working on it...) and rounded corners will not work on IE 7 &amp; 8.</p>
+
+<div id="example1">
+	<h2>This is example 1</h2>
+	<p>This is an example inline lightbox</p>
+</div>
+<div class="example2">
+	<video controls poster="http://sandbox.thewikies.com/vfe-generator/images/big-buck-bunny_poster.jpg" width="640" height="360">
+		<source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4" />
+		<source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.webm" type="video/webm" />
+		<source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.ogv" type="video/ogg" />
+		<object type="application/x-shockwave-flash" data="http://flashfox.googlecode.com/svn/trunk/flashfox.swf" width="640" height="360">
+			<param name="movie" value="http://flashfox.googlecode.com/svn/trunk/flashfox.swf" />
+			<param name="allowFullScreen" value="true" />
+			<param name="wmode" value="transparent" />
+			<param name="flashVars" value="controls=true&amp;poster=http%3A%2F%2Fsandbox.thewikies.com%2Fvfe-generator%2Fimages%2Fbig-buck-bunny_poster.jpg&amp;src=http%3A%2F%2Fclips.vorwaerts-gmbh.de%2Fbig_buck_bunny.mp4" />
+			<img alt="Big Buck Bunny" src="http://sandbox.thewikies.com/vfe-generator/images/big-buck-bunny_poster.jpg" width="640" height="360" title="No video playback capabilities, please download the video below" />
+		</object>
+	</video>
+</div>
+<script src="jquery-1.7.1.js"></script>
+<script src="jquery-aplightbox-plugin-v2.js"></script>
+<script>
+	$(".overlay").apLightBox();
+	$(".overlay1").apLightBox({
+		animation:true,
+		direction:'left',
+		customClass:'vdowidth'
+	});
+	$(".overlay2").apLightBox({title:true, titlePos:'top', display:'fade'});
+	$(".overlay3").apLightBox({animation:true, direction:'bottom'});
+</script>
+</body>
+</html>
